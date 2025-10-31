@@ -14,8 +14,12 @@ class Main {
                 if(request == 0)
                     break; //0 to get the elevator started
                 if (request > currFloor){
+                    if(up.contains(request))
+                        continue;
                     up.add(request);
                 } else if (request < currFloor){
+                    if(down.contains(request))
+                        continue;
                     down.add(request);
                 }
             }
@@ -55,8 +59,12 @@ class Main {
                 if(request == 0)
                     break; //0 to get the elevator started
                 if (request > currFloor){
+                    if(up.contains(request))
+                        continue;
                     up.add(request);
                 } else if (request < currFloor){
+                    if(down.contains(request))
+                        continue;
                     down.add(request);
                 }
             }
@@ -64,3 +72,19 @@ class Main {
         System.out.println("Elevator is stationed at floor: " + currFloor);
     }
 }
+
+
+
+/*
+I assumed the elevator acted like the one in my college apartment, where the elevator starts at floor 1 and then goes up and keeps fulfilling 
+the requests to the highest floor number, then works its way down and keeps going until no more requests. If there are no more requests, 
+the elevator stops at that current floor. When you press 0 when inputting a floor number, this is assuming that the "button" is 
+already pressed. I assumed there were an infinite number of floors on the elevator, ranging from 1 to n. I assumed you could only request a floor when the elevator is not
+moving. Duplicate requests are ignored. I assumed that you can't add duplicates. I assumed this was one elevator. I assumed the user 
+inputs a valid number.
+
+Some future features I would like to add are to make this a small full-stack application where we have the front-end being buttons with a user
+inputting the floor number, as well as a small console with an arrow pointing at which floor it is going to. I want to implement a feature 
+where you can request a floor while the elevator is moving. It would be cool to add an emergency button and possibly multiple elevator 
+logic.
+*/
